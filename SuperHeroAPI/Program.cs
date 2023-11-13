@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Repository;
+using RepositoryContracts;
 using Service;
 using ServiceContracts;
 using SuperHeroAPI.Data;
@@ -11,11 +13,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddScoped<ITypeFileService, TypeFileService>();
+builder.Services.AddScoped<ITypeFileRepository, TypeFileRepository>();
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("TestConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 builder.Services.AddCors(options => options.AddPolicy(name: "SuperHeroOrigins",
     policy =>

@@ -1,10 +1,18 @@
 ﻿using Models;
+using RepositoryContracts;
 using ServiceContracts;
 
 namespace Service
 {
     public class TypeFileService : ITypeFileService
     {
+        private readonly ITypeFileRepository _typeFileRepository;
+
+        public TypeFileService(ITypeFileRepository typeFileRepository)
+        {
+            _typeFileRepository = typeFileRepository;
+        }
+
         public async Task<GetTypeFile> GetTypeFile(int id)
         {
             return new GetTypeFile();
@@ -17,7 +25,7 @@ namespace Service
 
         public async Task<string> SetTypeFile(SetTypeFile typeFile)
         {
-            return "1";
+            return await _typeFileRepository.SetTypeFile(typeFile);
         }
     }
 }
