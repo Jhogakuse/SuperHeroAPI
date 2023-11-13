@@ -1135,6 +1135,43 @@
             "rid": "win"
           }
         }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Models": "1.0.0",
+          "ServiceContracts": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
+        }
+      },
+      "ServiceContracts/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ServiceContracts.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ServiceContracts.dll": {}
+        }
       }
     }
   },
@@ -3270,6 +3307,21 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
+    },
+    "ServiceContracts/1.0.0": {
+      "type": "project",
+      "path": "../ServiceCotracts/ServiceContracts.csproj",
+      "msbuildProject": "../ServiceCotracts/ServiceContracts.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3277,6 +3329,9 @@
       "Microsoft.EntityFrameworkCore >= 7.0.11",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.11",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.11",
+      "Models >= 1.0.0",
+      "Service >= 1.0.0",
+      "ServiceContracts >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -3312,7 +3367,17 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "E:\\Personal\\Documents\\Repos\\SuperHeroAPI\\Models\\Models.csproj": {
+              "projectPath": "E:\\Personal\\Documents\\Repos\\SuperHeroAPI\\Models\\Models.csproj"
+            },
+            "E:\\Personal\\Documents\\Repos\\SuperHeroAPI\\ServiceCotracts\\ServiceContracts.csproj": {
+              "projectPath": "E:\\Personal\\Documents\\Repos\\SuperHeroAPI\\ServiceCotracts\\ServiceContracts.csproj"
+            },
+            "E:\\Personal\\Documents\\Repos\\SuperHeroAPI\\Service\\Service.csproj": {
+              "projectPath": "E:\\Personal\\Documents\\Repos\\SuperHeroAPI\\Service\\Service.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
